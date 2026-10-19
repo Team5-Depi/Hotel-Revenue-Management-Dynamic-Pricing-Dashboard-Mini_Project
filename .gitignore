@@ -1,0 +1,6 @@
+data/*.csv
+*.bak
+*.mdf
+*.ldf
+~$*
+.DS_Store
