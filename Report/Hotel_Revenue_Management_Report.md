@@ -5,7 +5,9 @@
 
 This project develops an interactive hotel booking analytics dashboard using SQL Server and Microsoft Power BI. Its objective is to analyze booking patterns, cancellation behavior, Average Daily Rate (ADR), and hypothetical pricing scenarios to support hotel revenue management analysis.
 
-The project uses the Hotel Booking Demand dataset from Kaggle, originally containing 119,390 records and 32 columns. The workflow begins with dataset preparation and column selection, followed by SQL Server schema design, data preparation and analytical measure development in Power BI, dynamic pricing scenario analysis, and dashboard development.
+The project uses the Hotel Booking Demand dataset from Kaggle. The original dataset contains 119,390 records and 32 columns. The project workflow includes dataset preparation, SQL Server schema design, data preparation and analytical measure development in Power BI, dynamic pricing scenario analysis, and dashboard development.
+
+Both the original dataset and the prepared dataset are stored in the `Data/` directory. The original file, `hotel_bookings.csv`, contains 32 columns, while `Final_Data_File.csv` contains the 25 columns selected for project analysis.
 
 The final dashboard contains six KPI cards, six charts, and five slicers. A What-If parameter enables users to explore hypothetical price changes and their effect on modeled revenue under a constant-demand assumption.
 
@@ -13,7 +15,7 @@ The final dashboard contains six KPI cards, six charts, and five slicers. A What
 
 **Project title:** Hotel Revenue Management & Dynamic Pricing Dashboard
 
-**Domain:** Hospitality analytics and revenue management
+**Domain:** Hospitality Analytics and Revenue Management
 
 **Technologies:**
 - SQL Server
@@ -58,15 +60,22 @@ The project uses the **Hotel Booking Demand** dataset.
 
 | Attribute | Description |
 |---|---|
+| Original file | `hotel_bookings.csv` |
 | Original records | 119,390 |
 | Original columns | 32 |
+| Prepared file | `Final_Data_File.csv` |
+| Prepared records | 119,390 |
+| Prepared columns | 25 |
+| Storage location | `Data/` |
 | Domain | Hotel reservations |
 | Hotel categories | City Hotel and Resort Hotel |
 | Main analytical areas | Bookings, cancellations, ADR, customer types, deposit types, market segments, and stay duration |
 
-The dataset contains reservation-related attributes such as hotel type, arrival information, lead time, stay duration, guest counts, booking channels, market segments, deposit types, ADR, and reservation status.
+Both `hotel_bookings.csv` and `Final_Data_File.csv` are stored in the repository's `Data/` directory.
 
-The initial preparation stage involved removing columns considered unnecessary for the project's analytical objectives. The original CSV is not included in the repository and can be obtained from the Kaggle source.
+The original file contains the source dataset with 32 columns. During the initial preparation stage, seven columns considered unnecessary for the project's analytical objectives were removed, producing `Final_Data_File.csv` with 25 columns.
+
+The dataset contains reservation-related attributes such as hotel type, arrival information, lead time, stay duration, guest counts, booking channels, market segments, deposit types, ADR, and reservation status.
 
 ## 6. Project Workflow
 
@@ -74,15 +83,15 @@ The project follows a sequence of database, data preparation, analytical, and vi
 
 ### 6.1 Dataset Preparation
 
-The original CSV was downloaded from Kaggle. Columns considered unnecessary for the project's objectives were removed to prepare the dataset for the subsequent workflow.
+The original CSV was obtained from Kaggle and stored as `Data/hotel_bookings.csv`. Seven columns considered unnecessary for the project's analytical objectives were removed, and the resulting 25-column dataset was saved as `Data/Final_Data_File.csv`.
 
 ### 6.2 SQL Server Database Design
 
-The database schema was designed to separate booking records from descriptive attributes. A fact table and related dimension tables provide the database structure used in the analytical workflow.
+The database schema was designed to separate booking records from descriptive attributes. A fact table and related dimension tables provide the relational structure used in the analytical workflow.
 
 ### 6.3 Power BI Data Preparation
 
-The data was brought into Power BI for cleaning and preparation. Analytical measures were developed to support booking, cancellation, ADR, and revenue analysis.
+The prepared data was brought into Power BI for data preparation and cleaning. Analytical measures were developed to support booking, cancellation, ADR, and revenue analysis.
 
 ### 6.4 Dynamic Pricing Scenario
 
@@ -94,7 +103,7 @@ The resulting measures and scenario outputs were used to create KPI cards, chart
 
 **Overall workflow:**
 
-Kaggle Dataset → Column Selection → SQL Server Schema → Power BI Data Cleaning and Measures → What-If Scenario → Interactive Dashboard
+Original Kaggle Dataset → Column Selection → `Final_Data_File.csv` → SQL Server Schema → Power BI Data Preparation and Measures → What-If Scenario → Interactive Dashboard
 
 ## 7. Data Quality and Initial Profiling
 
@@ -118,7 +127,7 @@ Initial profiling of the original CSV identified the following characteristics.
 | Undefined distribution channel values | 5 |
 | Undefined meal values | 1,169 |
 
-These figures describe the original source data and provide context for the data preparation process.
+These figures describe the original source data and provide context for the data preparation process. They should not automatically be interpreted as the corresponding counts in the prepared dataset or the final Power BI model.
 
 Duplicate-looking records and unusual numerical values should be interpreted in the context of hotel bookings. For example, a zero ADR may reflect a particular booking condition rather than automatically indicating an invalid record.
 
@@ -126,7 +135,7 @@ Duplicate-looking records and unusual numerical values should be interpreted in 
 
 Power BI was used for data preparation and cleaning following the database design stage.
 
-The data preparation workflow focused on making the dataset suitable for analytical reporting, including the review of:
+The preparation workflow focused on reviewing data characteristics relevant to analytical reporting, including:
 
 - Column data types and field structure.
 - Missing and placeholder values.
@@ -137,11 +146,13 @@ The data preparation workflow focused on making the dataset suitable for analyti
 
 The prepared data was then used to support the development of analytical measures and dashboard visuals.
 
+The initial column selection and subsequent data-cleaning activities are distinct stages of the workflow. Removing columns from the original dataset does not, by itself, resolve missing values, duplicate records, or unusual numerical observations.
+
 ## 9. SQL Server Schema Design
 
 SQL Server provides the relational database structure used in the project.
 
-The database follows three main schema categories.
+The database design uses three main schema categories.
 
 | Schema | Purpose |
 |---|---|
@@ -151,10 +162,12 @@ The database follows three main schema categories.
 
 The database design separates descriptive entities from booking records, allowing analytical queries to use fact and dimension tables.
 
-The project SQL files are:
+The SQL-related files included in the project are:
 
-- `sql/HotelBookingDB.Zip`
+- `sql/HotelBookingDB.zip`
 - `sql/hotel.sql`
+
+The database setup and execution requirements depend on the SQL scripts and database files included in the repository.
 
 ## 10. Power BI Data Model
 
@@ -176,6 +189,8 @@ The reported dimension tables are:
 The model also includes booking-related records and a `_Measures` table for organizing DAX calculations.
 
 This structure supports filtering and analysis by hotel, country, customer type, deposit type, market segment, meal, room type, agent, reservation status, and date.
+
+The actual results depend on the relationships configured in the Power BI model and the fields available in the loaded tables.
 
 ## 11. DAX Measures and KPIs
 
@@ -214,11 +229,11 @@ The parameter allows users to select a hypothetical price adjustment using a sli
 
 ### 12.1 Scenario Components
 
-- **Base revenue:** the revenue value displayed before applying the selected price change.
-- **Price change:** the percentage selected by the user.
-- **Scenario revenue:** the modeled revenue value under the selected scenario.
-- **Revenue difference:** the difference between scenario revenue and base revenue.
-- **Revenue change percentage:** the relative change represented by the scenario measures.
+- **Base revenue:** The revenue value displayed before applying the selected price change.
+- **Price change:** The percentage selected by the user.
+- **Scenario revenue:** The modeled revenue value under the selected scenario.
+- **Revenue difference:** The difference between scenario revenue and base revenue.
+- **Revenue change percentage:** The relative change represented by the scenario measures.
 
 ### 12.2 Example Scenario
 
@@ -230,7 +245,9 @@ At a selected price increase of 30%, the dashboard displays the following values
 | Scenario revenue | 40.64M |
 | Revenue difference | 9.38M |
 
-This scenario assumes demand remains constant. It illustrates the effect of the selected price adjustment under the implemented scenario assumptions. It does not model customer price sensitivity, changes in booking volume, occupancy changes, or operating costs.
+These are the values displayed by the current dashboard scenario. They represent the output of the implemented measures and should not be interpreted as independently validated actual hotel revenue.
+
+The scenario assumes demand remains constant. It illustrates the effect of the selected price adjustment under the implemented scenario assumptions. It does not model customer price sensitivity, changes in booking volume, occupancy changes, operating costs, or profit margins.
 
 ## 13. Dashboard Design and Interactivity
 
@@ -266,11 +283,11 @@ The dashboard includes five slicers for interactive filtering. These allow users
 
 ### 13.4 Dashboard Development
 
-Emad was responsible for building the Power BI dashboard, arranging the KPI cards and charts, and developing the visual layout using the available analytical measures and dynamic pricing outputs.
+Menna Emad was responsible for building the Power BI dashboard, arranging the KPI cards and charts, and developing the visual layout using the available analytical measures and dynamic pricing outputs.
 
 ## 14. Key Findings
 
-The following findings were calculated from the original CSV dataset.
+The following findings were calculated from the original CSV dataset. They describe the original data and may differ from results produced by the final Power BI model, depending on data preparation and measure definitions.
 
 ### 14.1 Booking and Cancellation Patterns
 
@@ -302,6 +319,8 @@ At a selected 30% price increase, the dashboard displays a scenario revenue of a
 
 The resulting displayed difference is approximately 9.38M under the scenario assumptions.
 
+These scenario values represent the current dashboard output rather than a forecast validated against changes in actual customer demand.
+
 ## 15. Business Insights and Recommendations
 
 ### 15.1 Cancellation Management
@@ -310,7 +329,7 @@ The higher cancellation rate observed for City Hotel suggests that hotel-specifi
 
 ### 15.2 Deposit Policy Analysis
 
-The high cancellation rate associated with the Non-Refund deposit category warrants further analysis of booking conditions, reservation timing, and the composition of this category.
+The high cancellation rate associated with the Non-Refund deposit category warrants further analysis of booking conditions, reservation timing, and the composition of this category before making operational decisions.
 
 ### 15.3 Market Segment Analysis
 
@@ -339,6 +358,8 @@ When comparing KPI values, the following factors are relevant:
 - The measure logic and relationships in the Power BI model.
 
 These factors determine how individual measures should be interpreted within the dashboard.
+
+Revenue figures in particular should be checked against their DAX definitions and the underlying data before being used for financial reporting or business decisions.
 
 ## 17. Assumptions and Analytical Scope
 
@@ -389,16 +410,17 @@ The project was completed collaboratively, with responsibilities divided across 
 
 To reproduce the project workflow:
 
-1. Download the original Hotel Booking Demand CSV from the Kaggle source listed in Section 21.
-2. Prepare the source data by selecting the columns required for the analysis.
-3. Set up SQL Server using the SQL files included in the repository.
-4. Load the data and organize the fact and dimension tables.
-5. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop.
-6. Configure the database connection and refresh the model.
-7. Review the analytical measures and dashboard visuals.
-8. Use the `Price Change %` slicer to explore the dynamic pricing scenario.
+1. Obtain the original Hotel Booking Demand dataset from the Kaggle source listed in Section 21, if needed.
+2. Locate `Data/hotel_bookings.csv` in the repository to access the original 32-column dataset.
+3. Use `Data/Final_Data_File.csv` for the prepared 25-column dataset.
+4. Set up SQL Server using the SQL files included in the `sql/` directory.
+5. Load the data and organize the fact and dimension tables according to the available database scripts.
+6. Open `Power BI & Dashboard/Final___Hotel.pbix` in Power BI Desktop.
+7. Configure the data source paths and database connection, then refresh the model as needed.
+8. Review the analytical measures and dashboard visuals.
+9. Use the `Price Change %` slicer to explore the dynamic pricing scenario.
 
-The original CSV must be downloaded separately because it is not included in the repository.
+The repository includes both the original and prepared CSV files in the `Data/` directory. SQL Server and Power BI Desktop may be required to reproduce the complete workflow.
 
 ## 20. Conclusion
 
@@ -412,5 +434,5 @@ The resulting solution provides a foundation for further hotel analytics work, i
 
 ## 21. References
 
-1. Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22.
+1. Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22, 41–49.
 2. [Hotel Booking Demand Dataset — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
