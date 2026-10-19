@@ -8,7 +8,7 @@ Power BI dashboard and SQL Server model for hotel booking analysis, cancellation
 Understand bookings, cancellations and ADR, and test how a price change could affect revenue.
 
 ## Dataset
-Kaggle *Hotel Booking Demand* (119,390 rows x 32 columns). Not included; see [data/README.md](data/README.md).
+Kaggle *Hotel Booking Demand* (119,390 rows x 32 columns). Not included; see [data/README.md](Data/README.md).
 
 ## Tools
 SQL Server, SQL, Power BI, DAX, What-If parameter.
