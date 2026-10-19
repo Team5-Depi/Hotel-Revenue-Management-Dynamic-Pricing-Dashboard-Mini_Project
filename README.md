@@ -116,7 +116,7 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 │   ├── Final___Hotel.pbix
 │   └── Dashboard/
 │       └── dashboard.jpg
-├── reports/
+├── Report/
 │   └── Hotel_Revenue_Management_Report.md
 └── README.md
 ```
