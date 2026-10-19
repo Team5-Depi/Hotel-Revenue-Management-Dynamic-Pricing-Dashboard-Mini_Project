@@ -51,7 +51,7 @@ The original CSV contains 32 columns, whereas the SQL raw table contains 25 colu
 
 ## 6. Initial Data Audit
 
-The following observations were reported from profiling the original, unmodified CSV. See `results/data_quality_summary.csv` for the corresponding summary.
+The following observations were reported from profiling the original, unmodified CSV. 
 
 | Check | Count | Business implication |
 |---|---:|---|
