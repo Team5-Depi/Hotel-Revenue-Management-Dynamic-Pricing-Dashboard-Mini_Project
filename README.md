@@ -32,6 +32,7 @@ Both the original dataset and the prepared dataset are stored in the `Data/` dir
 ## Tools and Technologies
 
 - SQL Server
+- SQL
 - Microsoft Power BI
 - DAX
 - Power BI What-If parameter
