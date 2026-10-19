@@ -21,30 +21,17 @@ Hotels need to understand booking behavior, cancellation patterns, and room pric
 
 ## Dataset
 
-**Hotel Booking Demand** - Kaggle.
+**Hotel Booking Demand — Kaggle**
 
-- **Original dataset:**
+- **Original dataset:** `hotel_bookings.csv` — 119,390 rows × 32 columns.
+- **Prepared dataset:** `Final_Data_File.csv` — 119,390 rows × 25 columns, containing the columns selected for project analysis.
+- **Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
 
-`hotel_bookings.csv- 119,390 rows x 32 columns.
-
-**Prepared dataset:**
-
-`Final_Data_File.csv- 119,390 rows
-
-x 25 columns, containing the columns selected for project analysis.
-
-**Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com
-
-/datasets/jessemostipak/hotel-booking
-
--demand)
-
-Both the original dataset and the prepared dataset are stored in the `Data/` directory. The original file, `hotel_bookings.csv, contains all 32 columns, while `Final_Data_File.csv contains the 25 columns selected for the project workflow.
+Both the original dataset and the prepared dataset are stored in the `Data/` directory. The original file, `hotel_bookings.csv`, contains all 32 columns, while `Final_Data_File.csv` contains the 25 columns selected for the project workflow.
 
 ## Tools and Technologies
 
 - SQL Server
-- SQL
 - Microsoft Power BI
 - DAX
 - Power BI What-If parameter
