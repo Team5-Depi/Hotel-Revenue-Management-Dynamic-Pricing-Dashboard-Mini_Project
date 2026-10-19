@@ -1,4 +1,3 @@
-
 # Hotel Revenue Management & Dynamic Pricing Dashboard
 
 An interactive hotel booking analytics project built with SQL Server and Microsoft Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
@@ -151,8 +150,8 @@ The project was completed collaboratively, with responsibilities divided across 
 
 - **Mohamed Salah:** SQL schema design, fact and dimension tables, and database relationships.
 - **Donia Ragab and Dalia Hamdy:** Data cleaning and development of analytical measures in Power BI.
-- **Omar Mohamed Hosny:** What-If dynamic pricing scenario, scenario-related measures, and the price-change slicer.
-- **Emad:** Power BI dashboard design, including KPI cards, charts, and visual layout.
+- **Omar El-Zayat:** What-If dynamic pricing scenario, scenario-related measures, and the price-change slicer.
+- **Menna Emad:** Power BI dashboard design, including KPI cards, charts, and visual layout.
 
 ## References
 
