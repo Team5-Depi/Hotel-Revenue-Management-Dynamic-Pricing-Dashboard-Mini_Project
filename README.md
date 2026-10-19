@@ -121,8 +121,8 @@ Five slicers allow users to filter and explore the dashboard according to the av
     │   └── Dashboard/
     │       └── dashboard.jpg
     ├── Report/
-    │   └── Hotel_Revenue_Management_Report.md
-    └── README.md
+├── Hotel_Revenue_Management_Report.docx
+└── Hotel_Revenue_Management_Report.md
     
 ## Reproduction
 
