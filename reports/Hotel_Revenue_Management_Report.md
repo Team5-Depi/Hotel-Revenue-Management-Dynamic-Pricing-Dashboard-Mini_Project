@@ -108,11 +108,11 @@ No names were provided. Roles with the evidence found:
 
 | Role | Evidence in files |
 |---|---|
-| Person 1 - SQL ingestion and cleaning | `raw.hotel_bookings_raw` table exists; cleaning statements not in supplied script |
-| Person 2 - Data preparation and modeling | dimension/fact tables, `arrival_date`/`booking_date` columns in schema |
-| Person 3 - Relationships, DAX, KPIs | `_Measures` table with six KPI measures bound to visuals; DAX text unread |
-| Person 4 - What-If pricing | `Price Change %` parameter with Scenario Revenue and Revenue Difference measures |
-| Person 5 - Dashboard integration | one 16-visual page with cards, slicers, custom background |
+| Mohamed Salah - SQL ingestion and cleaning | `raw.hotel_bookings_raw` table exists; cleaning statements not in supplied script |
+| Donya Ragab - Data preparation and modeling | dimension/fact tables, `arrival_date`/`booking_date` columns in schema |
+| Dalia Hamdy - Relationships, DAX, KPIs | `_Measures` table with six KPI measures bound to visuals; DAX text unread |
+| Omar El-Zayat - What-If pricing | `Price Change %` parameter with Scenario Revenue and Revenue Difference measures |
+| Menna Emad - Dashboard integration | one 16-visual page with cards, slicers, custom background |
 
 ## 19. Reproducibility Instructions
 1. Download the CSV (see `data/README.md`). 2. Restore `HotelBookingDB.bak` on SQL Server 2022 (compatibility level 160) or run `sql/hotel.sql` for the empty schema. 3. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop and refresh. 4. Recompute metrics from the CSV with any tool using the formulas in section 11.
