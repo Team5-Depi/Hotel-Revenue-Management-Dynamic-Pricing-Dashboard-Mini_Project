@@ -2,7 +2,7 @@
 
 An interactive hotel booking analytics project built with SQL Server and Microsoft Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
 
-![Hotel Revenue Management Dashboard](powerbi/Dashboard/dashboard.jpg)
+![Hotel Revenue Management Dashboard](Power BI & Dashboard/Dashboard/dashboard.jpg)
 
 ## Business Problem
 
@@ -112,7 +112,7 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 ├── sql/
 │   ├── HotelBookingDB.zip
 │   └── hotel.sql
-├── powerbi/
+├── Power BI & Dashboard/
 │   ├── Final___Hotel.pbix
 │   └── Dashboard/
 │       └── dashboard.jpg
