@@ -2,7 +2,7 @@
 
 Power BI dashboard and SQL Server model for hotel booking analysis, cancellations, ADR and a price-change scenario.
 
-![Dashboard](powerbi/screenshots/dashboard.jpg)
+![Dashboard](powerbi/Dashboard/dashboard.jpg)
 
 ## Business problem and objectives
 Understand bookings, cancellations and ADR, and test how a price change could affect revenue.
