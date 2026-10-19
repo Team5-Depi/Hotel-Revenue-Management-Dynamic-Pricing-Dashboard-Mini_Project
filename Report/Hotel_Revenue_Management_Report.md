@@ -361,25 +361,9 @@ These factors determine how individual measures should be interpreted within the
 
 Revenue figures in particular should be checked against their DAX definitions and the underlying data before being used for financial reporting or business decisions.
 
-## 17. Assumptions and Analytical Scope
+ptimize hotel prices.
 
-### 17.1 Dataset Characteristics
-
-The original data contains missing values, placeholder values, duplicate-looking records, and unusual numerical observations. Their interpretation depends on the meaning of the relevant fields and the analytical objective.
-
-### 17.2 Revenue Indicators
-
-Revenue indicators represent the calculations implemented in the Power BI model. Their interpretation depends on the measure definitions and report filter context.
-
-### 17.3 Dynamic Pricing
-
-The pricing scenario assumes demand remains constant when the price changes. It does not model customer price sensitivity, occupancy changes, booking volume changes, operating costs, or profit margins.
-
-### 17.4 Project Scope
-
-The dashboard focuses on descriptive analytics and hypothetical pricing scenario analysis. It is designed to support exploration of booking and revenue indicators rather than automatically optimize hotel prices.
-
-## 18. Team Contributions
+## 17. Team Contributions
 
 The project was completed collaboratively, with responsibilities divided across database design, data preparation, analytical measures, dynamic pricing, and dashboard development.
 
@@ -406,7 +390,7 @@ The project was completed collaboratively, with responsibilities divided across 
 - Arranged the KPI cards and charts.
 - Developed the visual layout and dashboard presentation using the analytical measures and pricing scenario outputs.
 
-## 19. Reproducibility Instructions
+## 18. Reproducibility Instructions
 
 To reproduce the project workflow:
 
@@ -422,7 +406,7 @@ To reproduce the project workflow:
 
 The repository includes both the original and prepared CSV files in the `Data/` directory. SQL Server and Power BI Desktop may be required to reproduce the complete workflow.
 
-## 20. Conclusion
+## 19. Conclusion
 
 The Hotel Revenue Management & Dynamic Pricing Dashboard combines SQL Server database design with Power BI data preparation, DAX measures, and interactive visualization.
 
@@ -432,7 +416,7 @@ The analysis highlights differences in cancellation behavior across hotel types 
 
 The resulting solution provides a foundation for further hotel analytics work, including more detailed demand analysis, occupancy-based pricing, seasonality analysis, and cost-aware revenue optimization.
 
-## 21. References
+## 20. References
 
 1. Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22, 41–49.
 2. [Hotel Booking Demand Dataset — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
