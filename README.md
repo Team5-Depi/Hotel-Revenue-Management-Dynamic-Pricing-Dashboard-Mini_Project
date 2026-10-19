@@ -108,7 +108,6 @@ Five slicers allow users to filter and explore the dashboard according to the av
 
 ## Repository Structure
 
-    
 Hotel-Revenue-Management-Dynamic-Pricing/
 ├── Data/
 │   ├── hotel_bookings.csv
