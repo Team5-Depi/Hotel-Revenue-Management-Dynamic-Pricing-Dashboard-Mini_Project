@@ -1,0 +1,18 @@
+metric,value,formula,validation_vs_dashboard
+Total bookings (rows),119390,count of CSV rows,Dashboard card 119K - consistent (rounded)
+Canceled bookings,44224,SUM(is_canceled),
+Cancellation rate %,37.04,canceled / total,Dashboard 37.04% - exact match
+Average ADR (all rows),101.83,AVERAGE(adr) incl. canceled and zero-ADR rows,Dashboard 101.83 - exact match
+Average ADR City Hotel,105.3,,Chart ~105 - consistent
+Average ADR Resort Hotel,94.95,,Chart ~95 - consistent
+Cancellation rate City %,41.73,,
+Cancellation rate Resort %,27.76,,
+Cancellation rate Non Refund deposit %,99.36,,Dashboard bar ~100% - consistent
+Cancellation rate No Deposit %,28.38,,Dashboard ~28% - consistent
+Cancellation rate Refundable %,22.22,,Dashboard ~22% - consistent
+Online TA share of bookings %,47.3,,Dashboard 47.3% - match
+"Estimated value ADR*nights, all bookings",42723497.53,SUM(adr*(weekend+week nights)),Does NOT equal dashboard Total Revenue
+"Estimated value ADR*nights, non-canceled",25996260.41,same with is_canceled=0,Does NOT equal dashboard Total Revenue
+Dashboard Total Revenue (screenshot),31260000,formula unknown - DAX not readable,Not reproduced from CSV with tested formulas
+Dashboard Scenario Revenue (screenshot),40640000,Total Revenue x (1+30%),Arithmetic consistent: 31.26M x 1.30 = 40.64M
+Dashboard Revenue Difference (screenshot),9380000,Scenario - Total,Arithmetic consistent: 0.30 x 31.26M = 9.38M

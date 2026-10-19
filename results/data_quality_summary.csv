@@ -1,0 +1,17 @@
+check,count,note
+Rows,119390,original CSV
+Columns,32,"32 columns incl. distribution_channel, is_repeated_guest, booking_changes, company, parking, special requests"
+Exact duplicate rows (all columns),31994,26.8% of rows; dataset has no booking ID so some may be legitimate repeat bookings
+Rows with adults+children+babies = 0,180,invalid/unusable guest counts
+Rows with adults = 0,403,includes the 180 zero-guest rows
+Rows with 0 total nights,715,weekend+week nights = 0; ADR*nights is 0 for these
+Rows with ADR = 0,1959,complimentary or possibly missing prices
+Rows with negative ADR,1,value -6.38
+Maximum ADR,5400.0,extreme outlier
+agent = 'NULL' (text),16340,13.7%; stored as the string NULL
+company = 'NULL' (text),112593,94.3%
+country = 'NULL' (text),488,0.4%
+children = 'NA' (text),4,non-numeric value in a numeric column
+market_segment = Undefined,2,
+distribution_channel = Undefined,5,
+meal = Undefined,1169,
