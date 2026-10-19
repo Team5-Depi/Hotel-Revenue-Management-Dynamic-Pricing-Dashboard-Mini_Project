@@ -1,29 +1,32 @@
 # Hotel Revenue Management & Dynamic Pricing Dashboard
 
-A hotel booking analytics project built with SQL Server and Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
+An interactive hotel booking analytics project built with SQL Server and Microsoft Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
 
 ![Hotel Revenue Management Dashboard](powerbi/Dashboard/dashboard.jpg)
 
-## Business Problem and Objectives
+## Business Problem
 
-Hotel revenue teams need to understand booking behavior, cancellation patterns, and room pricing to support revenue management decisions.
+Hotels need to understand booking behavior, cancellation patterns, and room pricing to make informed revenue management decisions. This project uses hotel booking data to explore these patterns and provides an interactive dashboard for analyzing performance indicators and hypothetical price changes.
 
-This project aims to:
+## Project Objectives
+
 - Analyze booking volume and cancellation patterns.
 - Compare Average Daily Rate (ADR) across hotel types.
-- Explore cancellation behavior by deposit type, market segment, and customer type.
-- Monitor revenue-related KPIs.
-- Evaluate hypothetical price changes using a What-If parameter in Power BI.
+- Explore cancellations by deposit type, market segment, and customer type.
+- Organize booking data using a relational SQL Server schema.
+- Prepare and analyze data in Power BI.
+- Develop DAX measures and key performance indicators.
+- Implement a What-If parameter to explore hypothetical pricing scenarios.
+- Present results through interactive KPI cards, charts, and slicers.
 
 ## Dataset
 
-**Hotel Booking Demand** dataset from Kaggle.
+**Hotel Booking Demand** — Kaggle.
 
-- **Records:** 119,390
-- **Columns:** 32
-- **Source:** [Hotel Booking Demand — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
+- **Original dataset:** 119,390 rows × 32 columns.
+- **Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
 
-The original dataset is not included in this repository. Download it from Kaggle before reproducing the analysis.
+The dataset was downloaded from Kaggle, and columns considered unnecessary for the project analysis were removed during the initial preparation stage. The original dataset is not included in this repository.
 
 ## Tools and Technologies
 
@@ -35,14 +38,14 @@ The original dataset is not included in this repository. Download it from Kaggle
 
 ## Project Workflow
 
-1. Download the original CSV dataset from Kaggle.
-2. Load and organize the booking data in SQL Server.
-3. Structure the database using `raw`, `dimensions`, and `facts` schemas.
-4. Connect the data model to Power BI.
-5. Build DAX measures, KPI cards, charts, and slicers.
-6. Use the price-change parameter to explore hypothetical revenue scenarios.
+1. **Dataset preparation:** Download the original CSV from Kaggle and remove columns not required for the analysis.
+2. **SQL database design:** Create the database schema, organize booking records into fact and dimension tables, and define table relationships.
+3. **Power BI data preparation:** Import the data, perform data-cleaning operations, and prepare the analytical model.
+4. **Measures and KPIs:** Develop measures to analyze bookings, cancellations, ADR, stay duration, and revenue.
+5. **Dynamic pricing scenario:** Create a What-If parameter, scenario-related measures, and a slicer that allows users to change the hypothetical price adjustment.
+6. **Dashboard development:** Use the analytical measures and scenario outputs to create KPI cards, charts, and interactive filters.
 
-**Workflow:** CSV → SQL Server → Power BI data model → DAX measures → Interactive dashboard.
+**Workflow:** Kaggle CSV → Initial Column Selection → SQL Server Schema → Power BI Data Cleaning and Measures → What-If Pricing Scenario → Interactive Dashboard.
 
 ## Key Findings
 
@@ -60,23 +63,44 @@ The following figures were calculated from the original CSV dataset.
 | Non-Refund deposit cancellation rate | 99.36% |
 | Groups segment cancellation rate | 61.06% |
 
-These results highlight differences in cancellation behavior between hotel types, deposit categories, and market segments.
+These findings highlight differences in cancellation behavior and ADR across hotel types, deposit categories, and market segments.
 
 ## Dynamic Pricing Scenario
 
-The dashboard includes a **Price Change %** parameter that allows users to explore hypothetical price adjustments and their effect on modeled revenue.
+The dashboard includes a **Price Change %** What-If parameter that allows users to explore hypothetical price adjustments.
 
-At a 30% price increase, the displayed scenario changes revenue from approximately **31.26M to 40.64M**, representing a modeled difference of approximately **9.38M**.
+At a selected price increase of 30%, the dashboard displays the following scenario:
 
-The scenario assumes demand remains constant. It is intended for sensitivity analysis and does not account for customer response, changes in booking volume, operating costs, or profit margins.
+| Indicator | Displayed value |
+|---|---:|
+| Base revenue | 31.26M |
+| Scenario revenue | 40.64M |
+| Revenue difference | 9.38M |
+
+The scenario assumes demand remains constant. It illustrates the effect of a hypothetical price adjustment on modeled revenue and does not account for changes in demand, booking volume, operating costs, or profit margins.
 
 ## Dashboard Features
 
-The Power BI dashboard contains 17 visuals:
+The Power BI dashboard contains 17 visuals.
 
-- **6 KPI cards:** cancellation rate, total bookings, revenue difference, average ADR, total revenue, and scenario revenue.
-- **6 charts:** cancellation by deposit type, ADR by hotel, bookings by market segment, booking status by customer type, monthly revenue scenario comparison, and revenue by country.
-- **5 slicers:** interactive filters for exploring the dashboard data.
+### KPI Cards
+- Cancellation Rate
+- Total Bookings
+- Revenue Difference
+- Average ADR
+- Total Revenue
+- Scenario Revenue
+
+### Charts
+- Cancellation by deposit type
+- ADR by hotel type
+- Bookings by market segment
+- Confirmed versus canceled bookings by customer type
+- Monthly base revenue versus scenario revenue
+- Revenue by country
+
+### Interactivity
+Five slicers allow users to filter and explore the dashboard according to the available data and report configuration.
 
 ## Repository Structure
 
@@ -99,14 +123,17 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 ## Reproduction
 
 1. Download the original dataset from the Kaggle link above.
-2. Follow the available database setup instructions and prepare the SQL Server database.
-3. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop.
-4. Configure the data source and database connection as needed.
-5. Refresh the data model and explore the dashboard.
+2. Prepare the source data by selecting the required columns.
+3. Set up the SQL Server database using the SQL files available in the repository.
+4. Load the data into the database and establish the fact and dimension table relationships.
+5. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop.
+6. Configure the data source and refresh the model.
+7. Explore the KPI cards, charts, filters, and dynamic pricing scenario.
 
 ## Data Quality and Preparation
 
-Initial profiling of the original CSV identified:
+Initial profiling of the original CSV identified the following characteristics:
+
 - 31,994 duplicate-looking rows.
 - 180 rows with zero guests.
 - 715 rows with zero nights.
@@ -114,15 +141,17 @@ Initial profiling of the original CSV identified:
 - One row with a negative ADR value.
 - Missing or placeholder values in several columns.
 
-These checks help identify records that require attention during data preparation and analysis.
+Data preparation and cleaning were part of the Power BI workflow. These initial observations provide context for understanding the source dataset and its analytical characteristics.
 
 ## Team Contributions
 
-The project was divided into five roles covering SQL ingestion, data modeling, DAX and KPI development, dynamic pricing scenario analysis, and dashboard design.
+The project was completed collaboratively, with responsibilities divided across database design, data preparation, analytical measures, scenario analysis, and dashboard development.
 
-See Section 18 of the project report for the team contribution breakdown.
+- **Mohamed Salah:** SQL schema design, fact and dimension tables, and database relationships.
+- **Donia Ragab and Dalia Hamdy:** Data cleaning and development of analytical measures in Power BI.
+- **Omar Mohamed Hosny:** What-If dynamic pricing scenario, scenario-related measures and slicer, and dashboard development using KPI cards and charts.
 
 ## References
 
 - Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22.
-- [Hotel Booking Demand dataset — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
+- [Hotel Booking Demand Dataset — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
