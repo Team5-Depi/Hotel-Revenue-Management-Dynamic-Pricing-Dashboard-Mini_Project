@@ -1,4 +1,3 @@
-
 # Hotel Revenue Management & Dynamic Pricing Dashboard
 ## Technical Project Report
 
@@ -154,8 +153,8 @@ The database design separates descriptive entities from booking records, allowin
 
 The project SQL files are:
 
+- `sql/HotelBookingDB.Zip`
 - `sql/hotel.sql`
-- `sql/hotel_utf8.sql`
 
 ## 10. Power BI Data Model
 
