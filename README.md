@@ -21,13 +21,25 @@ Hotels need to understand booking behavior, cancellation patterns, and room pric
 
 ## Dataset
 
-**Hotel Booking Demand** — Kaggle.
+**Hotel Booking Demand** - Kaggle.
 
-- **Original dataset:** 119,390 rows × 32 columns.
-- **Prepared dataset:** `Final_Data_File.csv`, containing 25 columns selected for the project analysis.
-- **Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
+- **Original dataset:**
 
-The original dataset was downloaded from Kaggle. During the initial preparation stage, 7 columns considered unnecessary for the project analysis were removed, resulting in a prepared dataset containing 25 columns. The resulting file, `Final_Data_File.csv`, is stored in the `Data/` directory and is used for the subsequent database and dashboard development stages. The original dataset is not included in this repository.
+`hotel_bookings.csv- 119,390 rows x 32 columns.
+
+**Prepared dataset:**
+
+`Final_Data_File.csv- 119,390 rows
+
+x 25 columns, containing the columns selected for project analysis.
+
+**Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com
+
+/datasets/jessemostipak/hotel-booking
+
+-demand)
+
+Both the original dataset and the prepared dataset are stored in the `Data/` directory. The original file, `hotel_bookings.csv, contains all 32 columns, while `Final_Data_File.csv contains the 25 columns selected for the project workflow.
 
 ## Tools and Technologies
 
@@ -110,6 +122,7 @@ Five slicers allow users to filter and explore the dashboard according to the av
 
     Hotel-Revenue-Management-Dynamic-Pricing/
     ├── Data/
+    │   ├── hotel_bookings.csv
     │   ├── Final_Data_File.csv
     │   └── README.md
     ├── sql/
@@ -122,7 +135,7 @@ Five slicers allow users to filter and explore the dashboard according to the av
     ├── Report/
     │   └── Hotel_Revenue_Management_Report.md
     └── README.md
-
+    
 ## Reproduction
 
 1. Download the original dataset from the [Kaggle source](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) if needed.
