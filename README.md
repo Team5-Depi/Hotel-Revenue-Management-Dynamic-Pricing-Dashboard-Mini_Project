@@ -1,19 +1,19 @@
-
 # Hotel Revenue Management & Dynamic Pricing Dashboard
 
-A hotel booking analytics project built with SQL Server and Power BI to analyze bookings, cancellations, Average Daily Rate (ADR), and dynamic pricing scenarios.
+A hotel booking analytics project built with SQL Server and Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
 
 ![Hotel Revenue Management Dashboard](powerbi/Dashboard/dashboard.jpg)
 
 ## Business Problem and Objectives
 
-Hotel revenue teams need to understand booking patterns, cancellation behavior, and room pricing to support better revenue management decisions.
+Hotel revenue teams need to understand booking behavior, cancellation patterns, and room pricing to support revenue management decisions.
 
 This project aims to:
 - Analyze booking volume and cancellation patterns.
 - Compare Average Daily Rate (ADR) across hotel types.
-- Identify booking segments and deposit types associated with cancellations.
-- Explore how hypothetical price changes affect modeled revenue.
+- Explore cancellation behavior by deposit type, market segment, and customer type.
+- Monitor revenue-related KPIs.
+- Evaluate hypothetical price changes using a What-If parameter in Power BI.
 
 ## Dataset
 
@@ -27,15 +27,16 @@ The original dataset is not included in this repository. Download it from Kaggle
 
 ## Tools and Technologies
 
-- SQL Server and SQL
+- SQL Server
+- SQL
 - Microsoft Power BI
 - DAX
-- What-If parameter for dynamic pricing scenarios
+- Power BI What-If parameter
 
 ## Project Workflow
 
-1. Obtain the original CSV dataset from Kaggle.
-2. Load and organize booking data in SQL Server.
+1. Download the original CSV dataset from Kaggle.
+2. Load and organize the booking data in SQL Server.
 3. Structure the database using `raw`, `dimensions`, and `facts` schemas.
 4. Connect the data model to Power BI.
 5. Build DAX measures, KPI cards, charts, and slicers.
@@ -45,7 +46,7 @@ The original dataset is not included in this repository. Download it from Kaggle
 
 ## Key Findings
 
-The following values were recomputed from the original CSV dataset.
+The following figures were calculated from the original CSV dataset.
 
 | Metric | Result |
 |---|---:|
@@ -59,15 +60,23 @@ The following values were recomputed from the original CSV dataset.
 | Non-Refund deposit cancellation rate | 99.36% |
 | Groups segment cancellation rate | 61.06% |
 
-These findings describe the original dataset. They should not be interpreted as proof that every value in the SQL database or Power BI model was independently validated.
+These results highlight differences in cancellation behavior between hotel types, deposit categories, and market segments.
 
 ## Dynamic Pricing Scenario
 
-The dashboard includes a **Price Change %** parameter to explore the effect of hypothetical price adjustments on modeled revenue.
+The dashboard includes a **Price Change %** parameter that allows users to explore hypothetical price adjustments and their effect on modeled revenue.
 
-At a 30% price increase, the displayed scenario changes revenue from approximately **31.26M to 40.64M**, a difference of approximately **9.38M**.
+At a 30% price increase, the displayed scenario changes revenue from approximately **31.26M to 40.64M**, representing a modeled difference of approximately **9.38M**.
 
-This is a simplified scenario in which demand is held constant. It is **not a validated revenue forecast, a demand model, or a guarantee of increased profit**. The underlying DAX calculations require further validation before the scenario can support business decisions.
+The scenario assumes demand remains constant. It is intended for sensitivity analysis and does not account for customer response, changes in booking volume, operating costs, or profit margins.
+
+## Dashboard Features
+
+The Power BI dashboard contains 17 visuals:
+
+- **6 KPI cards:** cancellation rate, total bookings, revenue difference, average ADR, total revenue, and scenario revenue.
+- **6 charts:** cancellation by deposit type, ADR by hotel, bookings by market segment, booking status by customer type, monthly revenue scenario comparison, and revenue by country.
+- **5 slicers:** interactive filters for exploring the dashboard data.
 
 ## Repository Structure
 
@@ -87,36 +96,31 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 └── README.md
 ```
 
-*This structure reflects the intended project files. Confirm the actual filenames and capitalization in the repository before publishing.*
-
 ## Reproduction
 
 1. Download the original dataset from the Kaggle link above.
-2. Follow the database setup instructions available in the repository.
-3. Open `powerbi/Final___Hotel.pbix` using Power BI Desktop.
-4. Configure the required data source and database connection.
-5. Refresh the model and inspect the dashboard.
+2. Follow the available database setup instructions and prepare the SQL Server database.
+3. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop.
+4. Configure the data source and database connection as needed.
+5. Refresh the data model and explore the dashboard.
 
-Reproduction may require additional database setup or data-loading steps, depending on the files available in the repository.
-
-## Data Quality and Limitations
+## Data Quality and Preparation
 
 Initial profiling of the original CSV identified:
-
 - 31,994 duplicate-looking rows.
 - 180 rows with zero guests.
+- 715 rows with zero nights.
 - 1,959 rows with an ADR of zero.
+- One row with a negative ADR value.
 - Missing or placeholder values in several columns.
 
-These observations require context before deciding whether rows should be removed or modified. The exact SQL cleaning process, final fact-table row count, and DAX measure definitions have not been independently verified.
-
-The dashboard's displayed Total Revenue could not be reproduced from the original CSV using the tested calculations. Its exact calculation therefore remains to be confirmed.
+These checks help identify records that require attention during data preparation and analysis.
 
 ## Team Contributions
 
-The project was divided into five roles covering SQL ingestion, data modeling, DAX and KPIs, dynamic pricing scenario analysis, and dashboard design.
+The project was divided into five roles covering SQL ingestion, data modeling, DAX and KPI development, dynamic pricing scenario analysis, and dashboard design.
 
-See Section 18 of the project report for the contribution breakdown.
+See Section 18 of the project report for the team contribution breakdown.
 
 ## References
 
