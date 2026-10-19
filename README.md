@@ -106,8 +106,10 @@ The Power BI dashboard contains 17 visuals.
 
 Five slicers allow users to filter and explore the dashboard according to the available data and report configuration.
 
+
 ## Repository Structure
 
+```text
 Hotel-Revenue-Management-Dynamic-Pricing/
 ├── Data/
 │   ├── hotel_bookings.csv
@@ -123,6 +125,7 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 └── Report/
     ├── Hotel_Revenue_Management_Report.docx
     └── Hotel_Revenue_Management_Report.md
+```
 
     
 ## Reproduction
