@@ -108,21 +108,23 @@ Five slicers allow users to filter and explore the dashboard according to the av
 
 ## Repository Structure
 
-    Hotel-Revenue-Management-Dynamic-Pricing/
-    ├── Data/
-    │   ├── hotel_bookings.csv
-    │   ├── Final_Data_File.csv
-    │   └── README.md
-    ├── sql/
-    │   ├── HotelBookingDB.zip
-    │   └── hotel.sql
-    ├── Power BI & Dashboard/
-    │   ├── Final___Hotel.pbix
-    │   └── Dashboard/
-    │       └── dashboard.jpg
-    ├── Report/
-├── Hotel_Revenue_Management_Report.docx
-└── Hotel_Revenue_Management_Report.md
+    
+Hotel-Revenue-Management-Dynamic-Pricing/
+├── Data/
+│   ├── hotel_bookings.csv
+│   ├── Final_Data_File.csv
+│   └── README.md
+├── sql/
+│   ├── HotelBookingDB.zip
+│   └── hotel.sql
+├── Power BI & Dashboard/
+│   ├── Final___Hotel.pbix
+│   └── Dashboard/
+│       └── dashboard.jpg
+└── Report/
+    ├── Hotel_Revenue_Management_Report.docx
+    └── Hotel_Revenue_Management_Report.md
+
     
 ## Reproduction
 
