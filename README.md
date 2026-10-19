@@ -24,9 +24,10 @@ Hotels need to understand booking behavior, cancellation patterns, and room pric
 **Hotel Booking Demand** — Kaggle.
 
 - **Original dataset:** 119,390 rows × 32 columns.
+- **Prepared dataset:** `Final_Data_File.csv`, containing 25 columns selected for the project analysis.
 - **Source:** [Hotel Booking Demand Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
 
-The dataset was downloaded from Kaggle, and columns considered unnecessary for the project analysis were removed during the initial preparation stage. The original dataset is not included in this repository.
+The original dataset was downloaded from Kaggle. During the initial preparation stage, 7 columns considered unnecessary for the project analysis were removed, resulting in a prepared dataset containing 25 columns. The resulting file, `Final_Data_File.csv`, is stored in the `Data/` directory and is used for the subsequent database and dashboard development stages. The original dataset is not included in this repository.
 
 ## Tools and Technologies
 
@@ -38,18 +39,18 @@ The dataset was downloaded from Kaggle, and columns considered unnecessary for t
 
 ## Project Workflow
 
-1. **Dataset preparation:** Download the original CSV from Kaggle and remove columns not required for the analysis.
+1. **Dataset preparation:** Start with the original Kaggle CSV, remove the 7 columns not required for the analysis, and save the resulting 25-column dataset as `Final_Data_File.csv` in the `Data/` directory.
 2. **SQL database design:** Create the database schema, organize booking records into fact and dimension tables, and define table relationships.
-3. **Power BI data preparation:** Import the data, perform data-cleaning operations, and prepare the analytical model.
+3. **Power BI data preparation:** Import the prepared data or database tables, perform the required data-cleaning operations, and prepare the analytical model.
 4. **Measures and KPIs:** Develop measures to analyze bookings, cancellations, ADR, stay duration, and revenue.
 5. **Dynamic pricing scenario:** Create a What-If parameter, scenario-related measures, and a slicer that allows users to change the hypothetical price adjustment.
 6. **Dashboard development:** Use the analytical measures and scenario outputs to create KPI cards, charts, and interactive filters.
 
-**Workflow:** Kaggle CSV → Initial Column Selection → SQL Server Schema → Power BI Data Cleaning and Measures → What-If Pricing Scenario → Interactive Dashboard.
+**Workflow:** Original Kaggle CSV (32 columns) → Initial Column Selection (25 columns) → `Final_Data_File.csv` → SQL Server Schema → Power BI Data Preparation and Measures → What-If Pricing Scenario → Interactive Dashboard.
 
 ## Key Findings
 
-The following figures were calculated from the original CSV dataset.
+The following figures were calculated from the original CSV dataset. Results calculated using the prepared dataset or the final dashboard model may differ.
 
 | Metric | Result |
 |---|---:|
@@ -84,6 +85,7 @@ The scenario assumes demand remains constant. It illustrates the effect of a hyp
 The Power BI dashboard contains 17 visuals.
 
 ### KPI Cards
+
 - Cancellation Rate
 - Total Bookings
 - Revenue Difference
@@ -92,6 +94,7 @@ The Power BI dashboard contains 17 visuals.
 - Scenario Revenue
 
 ### Charts
+
 - Cancellation by deposit type
 - ADR by hotel type
 - Bookings by market segment
@@ -105,35 +108,34 @@ Five slicers allow users to filter and explore the dashboard according to the av
 
 ## Repository Structure
 
-```text
-Hotel-Revenue-Management-Dynamic-Pricing/
-├── Data/
-│   └── README.md
-├── sql/
-│   ├── HotelBookingDB.zip
-│   └── hotel.sql
-├── Power BI & Dashboard/
-│   ├── Final___Hotel.pbix
-│   └── Dashboard/
-│       └── dashboard.jpg
-├── Report/
-│   └── Hotel_Revenue_Management_Report.md
-└── README.md
-```
+    Hotel-Revenue-Management-Dynamic-Pricing/
+    ├── Data/
+    │   ├── Final_Data_File.csv
+    │   └── README.md
+    ├── sql/
+    │   ├── HotelBookingDB.zip
+    │   └── hotel.sql
+    ├── Power BI & Dashboard/
+    │   ├── Final___Hotel.pbix
+    │   └── Dashboard/
+    │       └── dashboard.jpg
+    ├── Report/
+    │   └── Hotel_Revenue_Management_Report.md
+    └── README.md
 
 ## Reproduction
 
-1. Download the original dataset from the Kaggle link above.
-2. Prepare the source data by selecting the required columns.
+1. Download the original dataset from the [Kaggle source](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) if needed.
+2. Use `Final_Data_File.csv` from the `Data/` directory. If preparing the data from scratch, remove the 7 columns not required for the analysis and save the resulting 25-column dataset under this filename.
 3. Set up the SQL Server database using the SQL files available in the repository.
-4. Load the data into the database and establish the fact and dimension table relationships.
-5. Open `powerbi/Final___Hotel.pbix` in Power BI Desktop.
-6. Configure the data source and refresh the model.
+4. Load the prepared data into the database and establish the fact and dimension table relationships.
+5. Open `Power BI & Dashboard/Final___Hotel.pbix` in Power BI Desktop.
+6. Configure the data source paths and refresh the model as needed.
 7. Explore the KPI cards, charts, filters, and dynamic pricing scenario.
 
 ## Data Quality and Preparation
 
-Initial profiling of the original CSV identified the following characteristics:
+Initial profiling of the original 32-column CSV identified the following characteristics:
 
 - 31,994 duplicate-looking rows.
 - 180 rows with zero guests.
@@ -142,7 +144,7 @@ Initial profiling of the original CSV identified the following characteristics:
 - One row with a negative ADR value.
 - Missing or placeholder values in several columns.
 
-Data preparation and cleaning were part of the Power BI workflow. These initial observations provide context for understanding the source dataset and its analytical characteristics.
+These figures describe the original dataset and may differ from the prepared dataset used in the project. The initial preparation stage involved removing 7 columns that were not required for the analysis, while additional data-cleaning operations were performed during the Power BI workflow.
 
 ## Team Contributions
 
@@ -155,5 +157,5 @@ The project was completed collaboratively, with responsibilities divided across 
 
 ## References
 
-- Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22.
+- Antonio, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22, 41–49.
 - [Hotel Booking Demand Dataset — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
