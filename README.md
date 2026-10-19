@@ -110,8 +110,8 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 ├── Data/
 │   └── README.md
 ├── sql/
-│   ├── hotel.sql
-│   └── hotel_utf8.sql
+│   ├── HotelBookingDB.zip
+│   └── hotel.sql
 ├── powerbi/
 │   ├── Final___Hotel.pbix
 │   └── Dashboard/
