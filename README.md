@@ -33,9 +33,9 @@ The Price Change % slicer scales revenue (30%: 31.26M -> 40.64M, +9.38M). Demand
 ## Repository structure
 ```
 README.md  LICENSE  .gitignore
-data/README.md
+Data/README.md
 sql/hotel.sql (UTF-16 original), hotel_utf8.sql
-powerbi/Final___Hotel.pbix, screenshots/dashboard.jpg
+powerbi/Final___Hotel.pbix, Dashboard/dashboard.jpg
 reports/Hotel_Revenue_Management_Report.md
 docs/data_dictionary.md  methodology.md  limitations.md
 results/data_quality_summary.csv  key_findings.csv
