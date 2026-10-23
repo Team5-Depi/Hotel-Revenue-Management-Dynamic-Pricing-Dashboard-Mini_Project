@@ -1,12 +1,15 @@
+
 # Hotel Revenue Management & Dynamic Pricing Dashboard
 
-An interactive hotel booking analytics project built with SQL Server and Microsoft Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios.
+An interactive hotel booking analytics project built with SQL Server and Microsoft Power BI to analyze booking patterns, cancellations, Average Daily Rate (ADR), and hypothetical dynamic pricing scenarios. The project also includes a standalone HTML web application for interactive data exploration, booking entry, and dynamic pricing analysis.
 
 [![Hotel Dashboard](<Power BI & Dashboard/Dashboard/dashboard.jpg>)](<Power BI & Dashboard/Dashboard/dashboard.jpg>)
 
 ## Business Problem
 
 Hotels need to understand booking behavior, cancellation patterns, and room pricing to support revenue management decisions. This project uses hotel booking data to explore these patterns and provides an interactive dashboard for analyzing performance indicators and hypothetical price changes.
+
+The accompanying web application extends this analysis with interactive data exploration, booking entry, multilingual support, and a responsive interface.
 
 ## Project Objectives
 
@@ -18,6 +21,8 @@ Hotels need to understand booking behavior, cancellation patterns, and room pric
 - Develop DAX measures and key performance indicators.
 - Implement a What-If parameter to explore hypothetical pricing scenarios.
 - Present results through interactive KPI cards, charts, and slicers.
+- Develop a responsive HTML web application for booking analysis, filtering, data entry, and dynamic pricing scenarios.
+- Support Arabic and English interfaces with right-to-left (RTL) and left-to-right (LTR) layouts.
 
 ## Dataset
 
@@ -36,6 +41,9 @@ Both the original dataset and the prepared dataset are stored in the `Data/` dir
 - Microsoft Power BI
 - DAX
 - Power BI What-If parameter
+- HTML5
+- CSS3
+- JavaScript
 
 ## Project Workflow
 
@@ -45,8 +53,9 @@ Both the original dataset and the prepared dataset are stored in the `Data/` dir
 4. **Measures and KPIs:** Develop measures to analyze bookings, cancellations, ADR, stay duration, and revenue.
 5. **Dynamic pricing scenario:** Create a What-If parameter, scenario-related measures, and a slicer that allows users to change the hypothetical price adjustment.
 6. **Dashboard development:** Use the analytical measures and scenario outputs to create KPI cards, charts, and interactive filters.
+7. **Web application development:** Provide a browser-based interface for exploring booking data, applying filters, entering new bookings, and viewing scenario-related metrics.
 
-**Workflow:** Original Kaggle CSV (32 columns) → Initial Column Selection (25 columns) → `Final_Data_File.csv` → SQL Server Schema → Power BI Data Preparation and Measures → What-If Pricing Scenario → Interactive Dashboard.
+**Workflow:** Original Kaggle CSV (32 columns) → Initial Column Selection (25 columns) → `Final_Data_File.csv` → SQL Server Schema → Power BI Data Preparation and Measures → What-If Pricing Scenario → Interactive Power BI Dashboard and HTML Web Application.
 
 ## Key Findings
 
@@ -68,7 +77,7 @@ These findings highlight differences in cancellation behavior and ADR across hot
 
 ## Dynamic Pricing Scenario
 
-The dashboard includes a **Price Change %** What-If parameter that allows users to explore hypothetical price adjustments.
+The Power BI dashboard includes a **Price Change %** What-If parameter that allows users to explore hypothetical price adjustments.
 
 At a selected price increase of 30%, the dashboard displays the following scenario:
 
@@ -79,6 +88,8 @@ At a selected price increase of 30%, the dashboard displays the following scenar
 | Revenue difference | 9.38M |
 
 The scenario assumes demand remains constant. It illustrates the effect of a hypothetical price adjustment on modeled revenue and does not account for changes in demand, booking volume, operating costs, or profit margins.
+
+The HTML web application also provides a price-change slider for exploring hypothetical pricing scenarios. Scenario outputs depend on the application's implemented calculation logic and the data available to it.
 
 ## Dashboard Features
 
@@ -106,6 +117,70 @@ The Power BI dashboard contains 17 visuals.
 
 Five slicers allow users to filter and explore the dashboard according to the available data and report configuration.
 
+## Interactive Web App (HTML)
+
+The project includes a standalone HTML web application named `Hotel_Design.html`. It provides a browser-based interface for exploring hotel booking data, analyzing revenue, and testing hypothetical dynamic pricing scenarios.
+
+The application consists of three main pages.
+
+### 1. Interactive Dashboard
+
+- Displays KPI cards and charts for hotel booking and revenue analysis.
+- Includes sidebar filters for hotel type, customer type, and market segment.
+- Provides a **Price Change %** slider for exploring hypothetical pricing scenarios.
+- Supports chart-based filtering: clicking a chart element applies a filter and displays an active-filter bar with a **Clear Filter** button.
+- Updates dashboard visuals based on the selected filters and booking data.
+
+### 2. Booking Records
+
+- Displays booking records in a tabular view with 15 rows per page.
+- Sorts records by revenue in descending order by default.
+- Includes a booking count column.
+- Responds to the active dashboard filters, allowing users to explore the corresponding subset of booking records.
+- Supports pagination for navigating through the available records.
+
+### 3. Add Booking
+
+- Provides a form for entering a new hotel booking.
+- Includes fields for hotel type, cancellation status, deposit type, ADR, market segment, customer type, month, country, and revenue.
+- Updates the dashboard immediately after a new booking is added, allowing users to explore its effect on the displayed metrics and charts.
+
+### Filtering and Interaction
+
+The application supports multiple ways to explore the data:
+
+- **Sidebar filters:** Filter the dashboard by hotel type, customer type, and market segment.
+- **Scenario analysis:** Adjust the price-change slider to examine hypothetical revenue changes.
+- **Chart interactions:** Select chart elements to filter the dashboard and related booking records.
+- **Active-filter management:** View active filters and clear chart-based selections using the dedicated button.
+- **Synchronized views:** Apply relevant filters to the dashboard and booking records.
+
+### Arabic and English Support
+
+The interface supports both Arabic and English through a language toggle.
+
+- Switches interface text between Arabic and English.
+- Adjusts the page direction between right-to-left (RTL) and left-to-right (LTR).
+- Repositions the sidebar to match the selected language direction.
+
+### Responsive Design
+
+The application adapts to different screen sizes:
+
+- **Desktop:** Displays a persistent sidebar alongside the main content.
+- **Mobile:** Provides a collapsible filter menu accessible through the **☰ Filters** button.
+- **Responsive layout:** Rearranges KPI cards and charts to fit the available screen width.
+
+### Running the Web Application
+
+1. Locate `Hotel_Design.html` in the repository's root directory.
+2. Open the file in a modern web browser.
+3. Navigate between the dashboard, booking records, and add-booking pages.
+4. Apply filters, select chart elements, switch languages, and adjust the pricing scenario.
+
+The application is packaged as a single HTML file. Its styling and client-side logic can be embedded within the HTML document, so separate CSS and JavaScript files are not required in the repository structure.
+
+Actual data persistence, external library dependencies, and internet requirements depend on the implementation of the HTML file.
 
 ## Repository Structure
 
@@ -122,12 +197,12 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 │   ├── Final___Hotel.pbix
 │   └── Dashboard/
 │       └── dashboard.jpg
+├── Hotel_Design.html
 └── Report/
     ├── Hotel_Revenue_Management_Report.docx
     └── Hotel_Revenue_Management_Report.md
 ```
 
-    
 ## Reproduction
 
 1. Download the original dataset from the [Kaggle source](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) if needed.
@@ -137,6 +212,8 @@ Hotel-Revenue-Management-Dynamic-Pricing/
 5. Open `Power BI & Dashboard/Final___Hotel.pbix` in Power BI Desktop.
 6. Configure the data source paths and refresh the model as needed.
 7. Explore the KPI cards, charts, filters, and dynamic pricing scenario.
+8. Open `Hotel_Design.html` in a supported web browser to access the web application.
+9. Explore the three application pages, apply filters, change the pricing scenario, switch between Arabic and English, and test the booking-entry form.
 
 ## Data Quality and Preparation
 
